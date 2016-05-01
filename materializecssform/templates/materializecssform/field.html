@@ -1,7 +1,10 @@
 {% load materializecss %}
 
-
-    {% if field|is_checkbox %}
+    {% if field.field.widget.attrs.template_name %}
+    <div class="col {{ classes.label }}">
+      {% include field.field.widget.attrs.template_name %}
+    </div>
+    {% elif field|is_checkbox %}
     <div class="col {{ classes.label }}">
         <div class="{{ classes.single_value }}">
             <div class="checkbox">
